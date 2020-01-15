@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          rel="stylesheet">
+    <!-- Profile page CSS -->
+    <link href="profile.style.client.css" rel="stylesheet"/>
+
+    <title>Profile</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="pt-2">Profile</h1>
+    <div class="alert alert-success wbdv-message" role="alert">
+        Profile successfully saved
+    </div>
+    <form>
+        <div class="form-group row">
+            <label class="col-lg-2 col-md-3 col-sm-4 col-form-label" for="username">
+                Username </label>
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <input class="form-control wbdv-field wbdv-username" id="username"
+                       placeholder="Alice" readonly/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-lg-2 col-md-3 col-sm-4 col-form-label" for="password">
+                Password </label>
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <input class="form-control wbdv-field wbdv-password" id="password"
+                       placeholder="123qwe#$%" type="password"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-lg-2 col-md-3 col-sm-4 col-form-label" for="phone">
+                Phone </label>
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <input class="form-control wbdv-field wbdv-phone" id="phone"
+                       placeholder="(555) 123-4324" type="tel"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-lg-2 col-md-3 col-sm-4 col-form-label" for="email">
+                Email </label>
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <input class="form-control wbdv-field wbdv-email" id="email"
+                       placeholder="alice@wonderland.com" type="email"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-lg-2 col-md-3 col-sm-4 col-form-label" for="role">
+                Role </label>
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <select class="form-control wbdv-field wbdv-role" id="role">
+                    <option value="FACULTY">Faculty</option>
+                    <option value="STUDENT">Student</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-lg-2 col-md-3 col-sm-4 col-form-label" for="dob">
+                Date of Birth </label>
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <input class="form-control wbdv-field wbdv-dob" id="dob" type="date"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-lg-2 col-md-3 col-sm-4 col-form-label"></label>
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <button class="btn btn-primary btn-block mb-3 wbdv-button wbdv-update"
+                        type="submit">
+                    Update
+                </button>
+                <button class="btn btn-danger btn-block wbdv-button wbdv-logout" formaction="/"
+                        type="submit">
+                    Logout
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
