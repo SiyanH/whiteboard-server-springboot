@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          rel="stylesheet">
+    <!-- Registration page CSS -->
+    <link href="course-list.style.client.css" rel="stylesheet"/>
+    <!-- Font Awesome -->
+    <link crossorigin="anonymous"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css"
+          integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" rel="stylesheet"/>
+
+    <title>Course Manager</title>
+</head>
+<body>
+<div class="container">
+    <!-- Bootstrap Navbar https://getbootstrap.com/docs/4.4/components/navbar/ -->
+    <nav class="navbar fixed-top navbar-dark bg-primary">
+        <div class="wbdv-navbar-header row">
+            <button aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation" class="navbar-toggler wbdv-field wbdv-hamburger"
+                    data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand wbdv-label wbdv-course-manager d-none d-sm-block col-lg-4 col-sm-4"
+               href="#">Course Manager</a>
+            <form class="form-inline row col-lg-6 col-sm-7 col-11">
+                <input class="form-control wbdv-field wbdv-new-course mr-sm-2 col-md-8 col-sm-8 col-9"
+                       onClick="this.select();" placeholder="New Course Title" type="text"
+                       value="New Course Title">
+                <button class="wbdv-button wbdv-add-course" type="submit">
+                    <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-1x"></i>
+                        <i class="fas fa-plus-circle fa-stack-2x"></i>
+                    </span>
+                </button>
+            </form>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile/profile.template.client.html">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!-- jQuery and Bootstrap JS -->
+<script crossorigin="anonymous"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

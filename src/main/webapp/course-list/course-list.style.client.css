@@ -1,0 +1,39 @@
+.wbdv-button {
+    background-color: transparent;
+    color: red;
+    border: none;
+    padding: 0;
+    outline: none;
+}
+
+.wbdv-button:focus {
+    outline: none;
+}
+
+.wbdv-add-course .fa-circle {
+    color: white;
+    font-size: 2em;
+}
+
+.wbdv-new-course, .wbdv-new-course:focus {
+    margin-left: 15px;
+    margin-right: 7px;
+    border: none;
+    color: white;
+    background-color: dodgerblue;
+    font-weight: 500;
+}
+
+.wbdv-new-course::placeholder {
+    color: lightgrey;
+    font-weight: normal;
+}
+
+.wbdv-navbar-header {
+    width: 100%;
+    padding-left: 15px;
+}
+
+#navbarNavDropdown a {
+    padding-left: 6px;
+}
