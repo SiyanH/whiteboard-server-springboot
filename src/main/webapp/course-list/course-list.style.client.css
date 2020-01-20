@@ -98,6 +98,10 @@ hr {
     color: #b9b9b9;
 }
 
+.wbdv-icon-num {
+    min-width: 24px;
+}
+
 #navbarNavDropdown a {
     padding-left: 6px;
 }
