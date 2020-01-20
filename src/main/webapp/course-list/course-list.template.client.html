@@ -19,13 +19,14 @@
     <title>Course Manager</title>
 </head>
 <body>
-<div class="container">
-    <!-- Bootstrap Navbar https://getbootstrap.com/docs/4.4/components/navbar/ -->
-    <nav class="navbar fixed-top navbar-dark bg-primary">
+<!-- Bootstrap Navbar https://getbootstrap.com/docs/4.4/components/navbar/ -->
+<div class="fixed-top">
+    <nav class="navbar navbar-dark bg-primary">
         <div class="wbdv-navbar-header row">
             <button aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Toggle navigation" class="navbar-toggler wbdv-field wbdv-hamburger"
-                    data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
+                    data-target="#navbarNavDropdown" data-toggle="collapse" title="Main menu"
+                    type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand wbdv-label wbdv-course-manager d-none d-sm-block col-lg-4 col-sm-4"
@@ -33,12 +34,12 @@
             <form class="form-inline row col-lg-6 col-sm-7 col-11">
                 <input class="form-control wbdv-field wbdv-new-course mr-sm-2 col-md-8 col-sm-8 col-9"
                        onClick="this.select();" placeholder="New Course Title" type="text"
-                       value="New Course Title">
-                <button class="wbdv-button wbdv-add-course" type="submit">
-                    <span class="fa-stack fa-lg">
-                        <i class="fas fa-circle fa-stack-1x"></i>
-                        <i class="fas fa-plus-circle fa-stack-2x"></i>
-                    </span>
+                       value="New Course">
+                <button class="wbdv-button wbdv-add-course" title="Add new course" type="submit">
+                        <span class="fa-stack fa-lg">
+                            <i class="fas fa-circle fa-stack-1x"></i>
+                            <i class="fas fa-plus-circle fa-stack-2x"></i>
+                        </span>
                 </button>
             </form>
         </div>
@@ -56,12 +57,207 @@
             </ul>
         </div>
     </nav>
+    <div class="container wbdv-header-bar">
+        <!-- Bootstrap Nav Pills with dropdowns
+        https://getbootstrap.com/docs/4.4/components/navs/#pills-with-dropdowns -->
+        <ul class="nav nav-pills d-flex align-items-center row">
+            <li class="nav-item col-lg-6 col-9">
+                <div class="nav-link wbdv-header wbdv-title">Title</div>
+            </li>
+            <li class="nav-item dropdown col-lg-2 d-none d-lg-block">
+                <button aria-expanded="false" aria-haspopup="true"
+                        class="nav-link dropdown-toggle border-0 wbdv-header wbdv-owner"
+                        data-toggle="dropdown" type="button">Owned by
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">me</a>
+                    <a class="dropdown-item" href="#">other</a>
+                    <a class="dropdown-item" href="#">anyone</a>
+                </div>
+            </li>
+            <li class="nav-item col-lg-2 d-none d-lg-block">
+                <div class="nav-link wbdv-header wbdv-last-modified">Last modified</div>
+            </li>
+            <li class="nav-item d-flex justify-content-end pr-0 col-1">
+                <button class="nav-link wbdv-button wbdv-grid-layout wbdv-list-layout"
+                        title="Grid view"
+                        type="button">
+                    <i class="fas fa-grip-horizontal"></i>
+                </button>
+            </li>
+            <li class="nav-item dropdown pl-0 col-1">
+                <button aria-expanded="false" aria-haspopup="true"
+                        class="nav-link dropdown-toggle wbdv-header wbdv-sort"
+                        data-toggle="dropdown"
+                        title="Sort options" type="button">
+                    <i class="fas fa-sort"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Last opened by me</a>
+                    <a class="dropdown-item" href="#">Last modified by me</a>
+                    <a class="dropdown-item" href="#">Last modified</a>
+                    <a class="dropdown-item" href="#">Title</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <hr class="m-0">
 </div>
-
+<div class="container">
+    <div class="wbdv-header wbdv-date">Today</div>
+    <!-- Bootstrap list group https://getbootstrap.com/docs/4.4/components/list-group/ -->
+    <div class="list-group wbdv-course-group">
+        <ul class="list-group list-group-horizontal wbdv-row wbdv-course">
+            <li class="list-group-item col-lg-6 col-10">
+                <i class="fas fa-file-alt text-primary wbdv-row wbdv-icon"></i>
+                <span class="ml-3 mr-3 wbdv-row wbdv-title">CS5500 Software Engineering Graduate</span>
+            </li>
+            <li class="list-group-item wbdv-row wbdv-owner col-lg-2 d-none d-lg-block">me</li>
+            <li class="list-group-item wbdv-row wbdv-modified-date col-lg-3 d-none d-lg-block">
+                6:45 PM
+            </li>
+            <li class="list-group-item d-flex justify-content-end col-lg-1">
+                <!-- Bootstrap close icon https://getbootstrap.com/docs/4.4/utilities/close-icon/ -->
+                <button aria-label="Close" class="close wbdv-row wbdv-button wbdv-delete"
+                        title="Delete" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </li>
+        </ul>
+        <ul class="list-group list-group-horizontal wbdv-row wbdv-course">
+            <li class="list-group-item col-lg-6 col-10">
+                <i class="fas fa-file-alt text-primary wbdv-row wbdv-icon"></i>
+                <span class="ml-3 mr-3 wbdv-row wbdv-title">CS4550 Software Engineering Undergraduate</span>
+            </li>
+            <li class="list-group-item wbdv-row wbdv-owner col-lg-2 d-none d-lg-block">me</li>
+            <li class="list-group-item wbdv-row wbdv-modified-date col-lg-3 d-none d-lg-block">6:45
+                PM
+            </li>
+            <li class="list-group-item d-flex justify-content-end col-lg-1">
+                <button aria-label="Close" class="close wbdv-row wbdv-button wbdv-delete"
+                        title="Delete" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </li>
+        </ul>
+        <ul class="list-group list-group-horizontal wbdv-row wbdv-course">
+            <li class="list-group-item col-lg-6 col-10">
+                <i class="fas fa-file-alt text-primary wbdv-row wbdv-icon"></i>
+                <span class="ml-3 mr-3 wbdv-row wbdv-title">CS4500 WebDev Undergraduate</span>
+            </li>
+            <li class="list-group-item wbdv-row wbdv-owner col-lg-2 d-none d-lg-block">me</li>
+            <li class="list-group-item wbdv-row wbdv-modified-date col-lg-3 d-none d-lg-block">6:45
+                PM
+            </li>
+            <li class="list-group-item d-flex justify-content-end col-lg-1">
+                <button aria-label="Close" class="close wbdv-row wbdv-button wbdv-delete"
+                        title="Delete" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </li>
+        </ul>
+        <ul class="list-group list-group-horizontal wbdv-row wbdv-course">
+            <li class="list-group-item col-lg-6 col-10">
+                <i class="fas fa-file-alt text-primary wbdv-row wbdv-icon"></i>
+                <span class="ml-3 mr-3 wbdv-row wbdv-title">CS5610 WebDev Graduate</span>
+            </li>
+            <li class="list-group-item wbdv-row wbdv-owner col-lg-2 d-none d-lg-block">me</li>
+            <li class="list-group-item wbdv-row wbdv-modified-date col-lg-3 d-none d-lg-block">6:45
+                PM
+            </li>
+            <li class="list-group-item d-flex justify-content-end col-lg-1">
+                <button aria-label="Close" class="close wbdv-row wbdv-button wbdv-delete"
+                        title="Delete" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </li>
+        </ul>
+        <ul class="list-group list-group-horizontal wbdv-row wbdv-course">
+            <li class="list-group-item col-lg-6 col-10">
+                <i class="fas fa-file-alt text-primary wbdv-row wbdv-icon"></i>
+                <span class="ml-3 mr-3 wbdv-row wbdv-title">CS5200 Intro to Database</span>
+            </li>
+            <li class="list-group-item wbdv-row wbdv-owner col-lg-2 d-none d-lg-block">me</li>
+            <li class="list-group-item wbdv-row wbdv-modified-date col-lg-3 d-none d-lg-block">6:44
+                PM
+            </li>
+            <li class="list-group-item d-flex justify-content-end col-lg-1">
+                <button aria-label="Close" class="close wbdv-row wbdv-button wbdv-delete"
+                        title="Delete" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div class="wbdv-header wbdv-date">Yesterday</div>
+    <div class="list-group wbdv-course-group">
+        <ul class="list-group list-group-horizontal wbdv-row wbdv-course">
+            <li class="list-group-item col-lg-6 col-10">
+                <i class="fas fa-file-alt text-primary wbdv-row wbdv-icon"></i>
+                <span class="ml-3 mr-3 wbdv-row wbdv-title">WEBDEV 2 - React</span>
+                <i class="fas fa-user-friends mr-3 wbdv-row wbdv-icon wbdv-icon-grey"></i>
+            </li>
+            <li class="list-group-item wbdv-row wbdv-owner col-lg-2 d-none d-lg-block">me</li>
+            <li class="list-group-item wbdv-row wbdv-modified-date col-lg-3 d-none d-lg-block">
+                May 4, 2018
+            </li>
+            <li class="list-group-item d-flex justify-content-end col-lg-1">
+                <button aria-label="Close" class="close wbdv-row wbdv-button wbdv-delete"
+                        title="Delete" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div class="wbdv-header wbdv-date">Previous 7 days</div>
+    <div class="list-group wbdv-course-group">
+        <ul class="list-group list-group-horizontal wbdv-row wbdv-course">
+            <li class="list-group-item col-lg-6 col-10">
+                <i class="fas fa-file-alt text-primary wbdv-row wbdv-icon"></i>
+                <span class="ml-3 mr-3 wbdv-row wbdv-title">WEBDEV Syllabus</span>
+                <i class="fas fa-user-friends mr-3 wbdv-row wbdv-icon wbdv-icon-grey"></i>
+            </li>
+            <li class="list-group-item wbdv-row wbdv-owner col-lg-2 d-none d-lg-block">me</li>
+            <li class="list-group-item wbdv-row wbdv-modified-date col-lg-3 d-none d-lg-block">
+                May 3, 2018
+            </li>
+            <li class="list-group-item d-flex justify-content-end col-lg-1">
+                <button aria-label="Close" class="close wbdv-row wbdv-button wbdv-delete"
+                        title="Delete" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </li>
+        </ul>
+        <ul class="list-group list-group-horizontal wbdv-row wbdv-course">
+            <li class="list-group-item col-lg-6 col-10">
+                <i class="fas fa-file-alt text-primary wbdv-row wbdv-icon"></i>
+                <span class="ml-3 mr-3 wbdv-row wbdv-title">WEBDEV 1 - JavaScript, Java, SQL</span>
+                <span class="fa-stack fa-xs mr-3 wbdv-row wbdv-icon">
+                    <i class="fas fa-circle fa-stack-2x wbdv-icon-grey"></i>
+                    <i class="fas fa-stack-1x text-white font-weight-bold">8</i>
+                </span>
+                <i class="fas fa-user-friends wbdv-row wbdv-icon wbdv-icon-grey"></i>
+            </li>
+            <li class="list-group-item wbdv-row wbdv-owner col-lg-2 d-none d-lg-block">me</li>
+            <li class="list-group-item wbdv-row wbdv-modified-date col-lg-3 d-none d-lg-block">
+                May 3, 2018
+            </li>
+            <li class="list-group-item d-flex justify-content-end col-lg-1">
+                <button aria-label="Close" class="close wbdv-row wbdv-button wbdv-delete"
+                        title="Delete" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
 <!-- jQuery and Bootstrap JS -->
 <script crossorigin="anonymous"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script crossorigin="anonymous"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
