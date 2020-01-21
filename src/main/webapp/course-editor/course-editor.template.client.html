@@ -19,10 +19,12 @@
     <title>Course Editor</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <button type="button" class="close ml-1 pb-1 wbdv-course-editor wbdv-close" aria-label="Close">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a aria-label="Close"
+       class="close ml-1 pb-1 wbdv-course-editor wbdv-close"
+       href="/course-list/course-list.template.client.html" title="Close" role="button">
         <span aria-hidden="true">&times;</span>
-    </button>
+    </a>
     <a class="navbar-brand wbdv-course-title" href="#">CS5610 - WebDev</a>
     <button aria-controls="navbarOption" aria-expanded="false" aria-label="Toggle navigation"
             class="navbar-toggler" data-target="#navbarOption" data-toggle="collapse" type="button">
@@ -39,11 +41,88 @@
             <a class="nav-item nav-link d-sm-block d-md-none" href="#">Add new page</a>
         </div>
     </div>
-    <button type="button" class="wbdv-button wbdv-new-page-btn d-none d-md-block"
-            title="Add new page">
+    <button class="wbdv-new-page-btn wbdv-btn-hover-shadow d-none d-md-block" title="Add new page"
+            type="button">
         <i class="fas fa-plus fa-lg text-white"></i>
     </button>
 </nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="wbdv-course-editor-left col-lg-4 col-xl-3">
+            <div class="list-group wbdv-module-list">
+                <a class="list-group-item list-group-item-action wbdv-module-item" role="button">
+                    <div class="wbdv-module-item-title text-white d-inline-block">Module 1 - jQuery</div>
+                    <button aria-label="Close"
+                            class="close text-white wbdv-module-item-delete-btn"
+                            type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </a>
+                <a class="list-group-item list-group-item-action wbdv-module-item active"
+                   role="button">
+                    <span class="wbdv-module-item-title text-white">Module 2 - React</span>
+                    <button aria-label="Close"
+                            class="close text-white wbdv-module-item-delete-btn"
+                            type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </a>
+                <a class="list-group-item list-group-item-action wbdv-module-item" role="button">
+                    <span class="wbdv-module-item-title text-white">Module 3 - Redux</span>
+                    <button aria-label="Close"
+                            class="close text-white wbdv-module-item-delete-btn"
+                            type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </a>
+                <a class="list-group-item list-group-item-action wbdv-module-item" role="button">
+                    <span class="wbdv-module-item-title text-white">Module 4 - Native</span>
+                    <button aria-label="Close"
+                            class="close text-white wbdv-module-item-delete-btn"
+                            type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </a>
+                <a class="list-group-item list-group-item-action wbdv-module-item" role="button">
+                    <span class="wbdv-module-item-title text-white">Module 5 - Angular</span>
+                    <button aria-label="Close"
+                            class="close text-white wbdv-module-item-delete-btn"
+                            type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </a>
+                <a class="list-group-item list-group-item-action wbdv-module-item" role="button">
+                    <span class="wbdv-module-item-title text-white">Module 6 - Node</span>
+                    <button aria-label="Close"
+                            class="close text-white wbdv-module-item-delete-btn"
+                            type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </a>
+                <a class="list-group-item list-group-item-action wbdv-module-item" role="button">
+                    <span class="wbdv-module-item-title text-white">Module 7 - Mongo</span>
+                    <button aria-label="Close"
+                            class="close text-white wbdv-module-item-delete-btn"
+                            type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </a>
+            </div>
+            <form class="d-flex align-items-center">
+                <label class="sr-only" for="newModuleTitleInput">New Module Title</label>
+                <input id="newModuleTitleInput" onClick="this.select();"
+                       placeholder="New Module Title" type="text" value="New Module">
+                <button class="wbdv-module-item-add-btn wbdv-btn-hover-shadow"
+                        title="Add new module" type="submit">
+                    <i class="fas fa-plus fa-lg text-white-50"></i>
+                </button>
+            </form>
+        </div>
+        <div class="wbdv-course-editor-right col-lg-8 col-xl-9"></div>
+    </div>
+
+
+</div>
 
 <!-- jQuery and Bootstrap JS -->
 <script crossorigin="anonymous"
