@@ -8,3 +8,5 @@ Name: Siyan He
 
 ## Describe the app
 Spring Boot Server
+
+Responsive layout support for screen width >= 320px (smallest mobile screen in Chrome Developer Tools)
