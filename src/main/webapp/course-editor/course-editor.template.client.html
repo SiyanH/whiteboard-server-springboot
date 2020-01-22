@@ -19,10 +19,31 @@
     <title>Course Editor</title>
 </head>
 <body>
+<!-- Bootstrap Modal https://getbootstrap.com/docs/4.0/components/modal/ -->
+<div aria-hidden="true" aria-labelledby="deleteModuleConfModel" class="modal fade" id="deleteModuleConfModel"
+     role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModuleConfModalLabel">Delete Module</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete this module?
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal" type="button">No</button>
+                <button class="btn btn-primary" type="button">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <a aria-label="Close"
        class="close ml-1 pb-1 wbdv-course-editor wbdv-close"
-       href="/course-list/course-list.template.client.html" title="Close" role="button">
+       href="/course-list/course-list.template.client.html" role="button" title="Close">
         <span aria-hidden="true">&times;</span>
     </a>
     <a class="navbar-brand wbdv-course-title" href="#">CS5610 - WebDev</a>
@@ -46,14 +67,17 @@
         <i class="fas fa-plus fa-lg text-white"></i>
     </button>
 </nav>
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid vh-100">
+    <div class="row vh-100">
         <div class="wbdv-course-editor-left col-lg-4 col-xl-3">
             <div class="list-group wbdv-module-list">
                 <a class="list-group-item list-group-item-action wbdv-module-item" role="button">
-                    <div class="wbdv-module-item-title text-white d-inline-block">Module 1 - jQuery</div>
-                    <button aria-label="Close"
-                            class="close text-white wbdv-module-item-delete-btn"
+                    <div class="wbdv-module-item-title text-white d-inline-block">Module 1 -
+                        jQuery
+                    </div>
+                    <button aria-label="Close" class="close text-white wbdv-module-item-delete-btn"
+                            data-target="#deleteModuleConfModel"
+                            data-toggle="modal"
                             type="button">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -61,48 +85,54 @@
                 <a class="list-group-item list-group-item-action wbdv-module-item active"
                    role="button">
                     <span class="wbdv-module-item-title text-white">Module 2 - React</span>
-                    <button aria-label="Close"
-                            class="close text-white wbdv-module-item-delete-btn"
+                    <button aria-label="Close" class="close text-white wbdv-module-item-delete-btn"
+                            data-target="#deleteModuleConfModel"
+                            data-toggle="modal"
                             type="button">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </a>
                 <a class="list-group-item list-group-item-action wbdv-module-item" role="button">
                     <span class="wbdv-module-item-title text-white">Module 3 - Redux</span>
-                    <button aria-label="Close"
-                            class="close text-white wbdv-module-item-delete-btn"
+                    <button aria-label="Close" class="close text-white wbdv-module-item-delete-btn"
+                            data-target="#deleteModuleConfModel"
+                            data-toggle="modal"
                             type="button">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </a>
                 <a class="list-group-item list-group-item-action wbdv-module-item" role="button">
                     <span class="wbdv-module-item-title text-white">Module 4 - Native</span>
-                    <button aria-label="Close"
-                            class="close text-white wbdv-module-item-delete-btn"
+                    <button aria-label="Close" class="close text-white wbdv-module-item-delete-btn"
+                            data-target="#deleteModuleConfModel"
+                            data-toggle="modal"
                             type="button">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </a>
                 <a class="list-group-item list-group-item-action wbdv-module-item" role="button">
                     <span class="wbdv-module-item-title text-white">Module 5 - Angular</span>
-                    <button aria-label="Close"
-                            class="close text-white wbdv-module-item-delete-btn"
+                    <button aria-label="Close" class="close text-white wbdv-module-item-delete-btn"
+                            data-target="#deleteModuleConfModel"
+                            data-toggle="modal"
                             type="button">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </a>
                 <a class="list-group-item list-group-item-action wbdv-module-item" role="button">
                     <span class="wbdv-module-item-title text-white">Module 6 - Node</span>
-                    <button aria-label="Close"
-                            class="close text-white wbdv-module-item-delete-btn"
+                    <button aria-label="Close" class="close text-white wbdv-module-item-delete-btn"
+                            data-target="#deleteModuleConfModel"
+                            data-toggle="modal"
                             type="button">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </a>
                 <a class="list-group-item list-group-item-action wbdv-module-item" role="button">
                     <span class="wbdv-module-item-title text-white">Module 7 - Mongo</span>
-                    <button aria-label="Close"
-                            class="close text-white wbdv-module-item-delete-btn"
+                    <button aria-label="Close" class="close text-white wbdv-module-item-delete-btn"
+                            data-target="#deleteModuleConfModel"
+                            data-toggle="modal"
                             type="button">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -118,7 +148,85 @@
                 </button>
             </form>
         </div>
-        <div class="wbdv-course-editor-right col-lg-8 col-xl-9"></div>
+        <div class="wbdv-course-editor-right col-lg-8 col-xl-9">
+            <div aria-label="Topic list" class="wbdv-topic-pill-list" role="group">
+                <button class="wbdv-topic-pill btn btn-secondary" type="button">Topic 1</button>
+                <button class="wbdv-topic-pill btn btn-secondary active" type="button">Topic 2
+                </button>
+                <button class="wbdv-topic-pill btn btn-secondary" type="button">Topic 3</button>
+                <button class="wbdv-topic-pill btn btn-secondary" type="button">Topic 4</button>
+                <button class="wbdv-topic-add-btn btn btn-secondary"
+                        title="Add new topic" type="button">
+                    <i class="fas fa-plus fa"></i>
+                </button>
+            </div>
+            <div class="d-flex align-items-center float-right">
+                <button class="btn btn-sm btn-success wbdv-widget-save-btn" type="button">Save
+                </button>
+                <div class="custom-control custom-control-right custom-switch">
+                    <input class="custom-control-input" data-size="xs" id="previewSwitch"
+                           type="checkbox">
+                    <label class="custom-control-label" for="previewSwitch">Preview</label>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row no-gutters">
+                        <h4 class="col-md-4">Heading widget</h4>
+                        <form class="form-inline wbdv-widget-form-inline d-flex justify-content-sm-end col-md-8">
+                            <button class="btn btn-warning"
+                                    title="Move up" type="button">
+                                <i class="fas fa-arrow-up fa-sm"></i>
+                            </button>
+                            <button class="btn btn-warning"
+                                    title="Move down" type="button">
+                                <i class="fas fa-arrow-down fa-sm"></i>
+                            </button>
+                            <label class="sr-only" for="widgetType">Widget Type</label>
+                            <select class="form-control" id="widgetType" title="Widget type">
+                                <option>Heading</option>
+                                <option>Paragraph</option>
+                                <option>Image</option>
+                                <option>List</option>
+                            </select>
+                            <button class="btn btn-danger"
+                                    title="Delete widget" type="button">
+                                <i class="fas fa-times fa-sm"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label class="sr-only" for="headingText">Heading text</label>
+                            <input class="form-control" id="headingText" placeholder="Heading text"
+                                   type="text" value="Heading text">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="headingStyle">Heading style</label>
+                            <select class="form-control" id="headingStyle" title="Heading style">
+                                <option>Heading 1</option>
+                                <option>Heading 2</option>
+                                <option>Heading 3</option>
+                                <option>Heading 4</option>
+                                <option>Heading 5</option>
+                                <option>Heading 6</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="widgetName">Widget name</label>
+                            <input class="form-control" id="widgetName" placeholder="Widget name"
+                                   type="text">
+                        </div>
+                    </form>
+                    <h5>Preview</h5>
+                    <h2 class="mb-0">Heading text</h2>
+                </div>
+            </div>
+            <button class="btn btn-danger float-right wbdv-widget-add-btn"
+                    title="Add new widget" type="button">
+                <i class="fas fa-plus-circle fa-sm"></i>
+            </button>
+        </div>
     </div>
 
 
