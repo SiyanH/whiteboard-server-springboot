@@ -13,7 +13,11 @@ button {
 }
 
 .wbdv-course-title {
+    max-width: 58%;
     margin-left: 4vh;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .wbdv-page-tab-group .nav-link.active {
