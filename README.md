@@ -10,3 +10,5 @@ Name: Siyan He
 Spring Boot Server
 
 Responsive layout support for screen width >= 320px (smallest mobile screen in Chrome Developer Tools)
+
+[Heroku deployment](https://cs5610-sp20-springboot-siyanhe.herokuapp.com/)
