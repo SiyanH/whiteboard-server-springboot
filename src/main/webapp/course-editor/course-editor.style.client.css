@@ -16,11 +16,11 @@ button {
     margin-left: 4vh;
 }
 
-.wbdv-page-tab .nav-link.active {
+.wbdv-page-tab-group .nav-link.active {
     background-color: #1b1b1b8c;
 }
 
-.wbdv-page-tab .nav-item {
+.wbdv-page-tab-group .nav-item {
     min-width: 10vw;
     text-align: center;
 }
