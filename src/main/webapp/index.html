@@ -9,26 +9,30 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           rel="stylesheet">
+    <!-- Index page CSS -->
+    <link href="index.css" rel="stylesheet"/>
 
     <title>Whiteboard</title>
 </head>
 <body>
 <!-- Bootstrap Jumbotron component: https://getbootstrap.com/docs/4.4/components/jumbotron/ -->
-<div class="jumbotron vh-100">
+<div class="jumbotron min-vh-100">
     <h1 class="display-4">Welcome to Whiteboard!</h1>
     <p class="lead">An LMS (Learning Management System) where faculty can create courses and author
         content for the students, while students can register, take the course, and submit
         assignments and quizzes.</p>
     <hr class="my-4">
-    <a class="btn btn-primary btn-lg" href="login/login.template.client.html" role="button">Sign
-        in</a>
-    <a class="btn btn-primary btn-lg" href="register/register.template.client.html" role="button">Sign
-        up</a>
-    <a class="btn btn-primary btn-lg" href="profile/profile.template.client.html" role="button">Profile</a>
-    <a class="btn btn-primary btn-lg" href="course-list/course-list.template.client.html"
-       role="button">Course List</a>
-    <a class="btn btn-primary btn-lg" href="course-editor/course-editor.template.client.html"
-       role="button">Course Editor</a>
+    <div aria-label="Navigation buttons" class="wbdv-index-button-group" role="group">
+        <a class="btn btn-primary btn-lg" href="login/login.template.client.html"
+           role="button">Login</a>
+        <a class="btn btn-primary btn-lg" href="register/register.template.client.html"
+           role="button">Registration</a>
+        <a class="btn btn-primary btn-lg" href="profile/profile.template.client.html" role="button">Profile</a>
+        <a class="btn btn-primary btn-lg" href="course-list/course-list.template.client.html"
+           role="button">Course List</a>
+        <a class="btn btn-primary btn-lg" href="course-editor/course-editor.template.client.html"
+           role="button">Course Editor</a>
+    </div>
 </div>
 </body>
 </html>

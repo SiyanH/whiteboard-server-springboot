@@ -1,0 +1,8 @@
+body {
+    min-height: 100vh;
+}
+
+.wbdv-index-button-group a {
+    margin-right: 2px;
+    margin-bottom: 6px;
+}
