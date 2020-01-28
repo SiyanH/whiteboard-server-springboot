@@ -40,26 +40,30 @@
                     <option value="STUDENT">Student</option>
                     <option value="ADMIN">Admin</option>
                 </select></td>
+                <td class="d-none" id="userId"></td>
                 <td>
-            <span class="float-right wbdv-button-group">
-                <i class="fa-2x fa fa-search wbdv-search"></i>
-                <i class="fa-2x fa fa-plus wbdv-create"></i>
-                <i class="fa-2x fa fa-check wbdv-update"></i>
-            </span>
+                    <span class="float-right wbdv-button-group">
+                        <i class="fa-2x fas fa-search wbdv-search wbdv-button" id="search-btn"></i>
+                        <i class="fa-2x fas fa-plus wbdv-create wbdv-button" id="create-btn"></i>
+                        <i class="fa-2x fas fa-check wbdv-update wbdv-button" id="update-btn"></i>
+                    </span>
                 </td>
             </tr>
+            </thead>
             <tbody class="wbdv-tbody">
-            <tr class="wbdv-template wbdv-user wbdv-hidden">
-                <td class="wbdv-username">ada</td>
+            <tr class="d-none wbdv-template wbdv-user wbdv-hidden">
+                <td class="wbdv-username"></td>
                 <td>&nbsp;</td>
-                <td class="wbdv-first-name">Ada</td>
-                <td class="wbdv-last-name">Lovelace</td>
-                <td class="wbdv-role">FACULTY</td>
+                <td class="wbdv-first-name"></td>
+                <td class="wbdv-last-name"></td>
+                <td class="wbdv-role"></td>
                 <td class="wbdv-actions">
-        <span class="float-right">
-          <i class="fa-2x fa fa-times wbdv-remove" id="wbdv-remove"></i>
-          <i class="fa-2x fa fa-pencil wbdv-edit" id="wbdv-edit"></i>
-        </span>
+                    <span class="d-flex float-right align-items-center">
+                        <i class="fa-2x fas fa-times wbdv-remove wbdv-button" id="wbdv-remove"
+                           role="button"></i>
+                        <i class="fa-lg fas fa-pencil-alt wbdv-edit wbdv-button" id="wbdv-edit"
+                           role="button"></i>
+                    </span>
                 </td>
             </tr>
             </tbody>
@@ -73,6 +77,7 @@
 <script crossorigin="anonymous"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="../models/user.model.client.js"></script>
 <script src="../services/user.service.client.js"></script>
 <script src="user-admin.controller.client.js"></script>
 </body>

@@ -1,3 +1,21 @@
 .wbdv-button-group, th {
     white-space: nowrap;
 }
+
+.wbdv-button {
+    background-color: transparent;
+    border-color: transparent;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 1px;
+}
+
+td.wbdv-actions {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.wbdv-actions i {
+    margin-left: 3px;
+    margin-right: 3px;
+}
