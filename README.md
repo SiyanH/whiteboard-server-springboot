@@ -6,6 +6,8 @@ Name: Siyan He
 ## Assignments
 [A1 - Implementing Web Interfaces with HTML, CSS, Bootstrap - Due 1/21](https://docs.google.com/document/d/1BWKOyq9agNMsd2n_c3XShuR5T5yVXKSpsFQk9uS1M_Y/edit?usp=sharing)
 
+[A2 - Programming Dynamic Web Interfaces with JavaScript and jQuery - Due 1/28](https://docs.google.com/document/d/1DSkyihff_GIAceLUJpi7s7KStdd2H64jB_GQQcveWJE/edit?usp=sharing)
+
 ## Describe the app
 Spring Boot Server
 
