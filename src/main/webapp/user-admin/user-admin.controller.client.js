@@ -32,8 +32,10 @@
         }
         const user = new User($usernameFld.val(), $passwordFld.val(), $firstNameFld.val(),
                               $lastNameFld.val(), $roleFld.val());
-        clearFld();
         userService.createUser(user).then(newUser => findAllUsers());
+
+        clearFld();
+        currentUser = null;
     }
 
     function findAllUsers() {
@@ -81,6 +83,7 @@
         userService.updateUser(currentUser._id, currentUser).then(newUser => findAllUsers());
 
         clearFld();
+        $passwordFld.attr("title", "");
         currentUser = null;
     }
 
