@@ -2,7 +2,8 @@
     let currentUser;
     let $usernameFld, $passwordFld;
     let $firstNameFld, $lastNameFld, $roleFld, $userId;
-    let $removeBtn, $editBtn, $createBtn, $updateBtn;
+    let $removeBtn, $editBtn;
+    let $searchBtn, $createBtn, $updateBtn;
     let $userRowTemplate, $tbody;
     let userService = new AdminUserServiceClient();
     $(main);
@@ -14,15 +15,29 @@
         $lastNameFld = $("#lastNameFld");
         $roleFld = $("#roleFld");
         $userId = $("#userId");
+        $searchBtn = $("#search-btn");
         $createBtn = $("#create-btn");
         $updateBtn = $("#update-btn");
         $userRowTemplate = $(".wbdv-template");
         $tbody = $(".wbdv-tbody");
 
+        $searchBtn.click(() => searchUser());
         $createBtn.click(() => createUser());
         $updateBtn.click(() => updateUser());
 
         findAllUsers();
+    }
+
+    function searchUser() {
+        $(".wbdv-user").hide().filter((index, row) => {
+            return ($usernameFld.val() === "" || $(row).children(".wbdv-username").text()
+                    === $usernameFld.val()) &&
+                   ($firstNameFld.val() === "" || $(row).children(".wbdv-first-name").text()
+                    === $firstNameFld.val()) &&
+                   ($lastNameFld.val() === "" || $(row).children(".wbdv-last-name").text()
+                    === $lastNameFld.val()) &&
+                   ($(row).children(".wbdv-role").text() === $roleFld.val());
+        }).show();
     }
 
     function createUser() {
