@@ -2,16 +2,25 @@ package com.example.cs5610spring2020springbootsiyanhe.services;
 
 import com.example.cs5610spring2020springbootsiyanhe.models.Widget;
 
-import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-@Service
 public class WidgetService {
-  List<Widget> widgetList = new ArrayList<>();
+  private static WidgetService service = null;
+  private List<Widget> widgetList;
+
+  private WidgetService() {
+    this.widgetList = new ArrayList<>();
+  }
+
+  public static WidgetService getInstance() {
+    if (service == null) {
+      service = new WidgetService();
+    }
+    return service;
+  }
 
   /**
    * Create a new Widget instance and add it to the existing collection of widgets for a topic whose
@@ -57,5 +66,24 @@ public class WidgetService {
       return 1;
     }
     return 0;
+  }
+
+  /**
+   * Returns collection of all widgets.
+   */
+  public List<Widget> findAllWidgets() {
+    return widgetList;
+  }
+
+  /**
+   * Return a single widget instance whose id is equal to wid.
+   */
+  private Widget findWidgetById(String wid) {
+    for (Widget w : widgetList) {
+      if (w.getId().equals(wid)) {
+        return w;
+      }
+    }
+    return null;
   }
 }
