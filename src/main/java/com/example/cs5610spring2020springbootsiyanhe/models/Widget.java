@@ -3,7 +3,7 @@ package com.example.cs5610spring2020springbootsiyanhe.models;
 public class Widget {
   private String id;
   private String topicId;
-  private String name = "New Widget";
+  private String name;
   private String type = "HEADING";
   private int order;
   private String text;
