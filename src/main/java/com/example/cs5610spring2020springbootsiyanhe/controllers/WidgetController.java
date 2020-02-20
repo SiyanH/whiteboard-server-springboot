@@ -38,4 +38,14 @@ public class WidgetController {
   public int deleteWidget(@PathVariable("wid") String wid) {
     return service.deleteWidget(wid);
   }
+
+  @GetMapping("/api/widgets")
+  public List<Widget> findAllWidgets() {
+    return service.findAllWidgets();
+  }
+
+  @GetMapping("/api/widgets/{wid}")
+  public Widget findWidgetById(@PathVariable("wid") String wid) {
+    return service.findWidgetById(wid);
+  }
 }

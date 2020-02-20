@@ -78,7 +78,7 @@ public class WidgetService {
   /**
    * Return a single widget instance whose id is equal to wid.
    */
-  private Widget findWidgetById(String wid) {
+  public Widget findWidgetById(String wid) {
     for (Widget w : widgetList) {
       if (w.getId().equals(wid)) {
         return w;
