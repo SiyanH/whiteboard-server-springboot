@@ -3,7 +3,6 @@ package com.example.cs5610spring2020springbootsiyanhe.controllers;
 import com.example.cs5610spring2020springbootsiyanhe.models.Widget;
 import com.example.cs5610spring2020springbootsiyanhe.services.WidgetService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +17,7 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
 public class WidgetController {
-
-  @Autowired
-  WidgetService service;
+  private WidgetService service = WidgetService.getInstance();
 
   @PostMapping("/api/topics/{tid}/widgets")
   public Widget createWidget(@PathVariable("tid") String tid, @RequestBody Widget widget) {
@@ -32,7 +29,7 @@ public class WidgetController {
     return service.findWidgetsForTopic(tid);
   }
 
-  @PutMapping("/api/widgets{wid}")
+  @PutMapping("/api/widgets/{wid}")
   public int updateWidget(@PathVariable("wid") String wid, @RequestBody Widget widget) {
     return service.updateWidget(wid, widget);
   }
