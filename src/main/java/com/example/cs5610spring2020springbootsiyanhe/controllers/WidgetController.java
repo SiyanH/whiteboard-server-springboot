@@ -48,4 +48,9 @@ public class WidgetController {
   public Widget findWidgetById(@PathVariable("wid") String wid) {
     return service.findWidgetById(wid);
   }
+
+  @PutMapping("/api/widgets")
+  public int saveAllWidgets(@RequestBody List<Widget> widgets) {
+    return service.saveAllWidgets(widgets);
+  }
 }

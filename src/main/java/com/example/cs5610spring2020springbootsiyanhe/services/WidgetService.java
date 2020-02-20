@@ -86,4 +86,16 @@ public class WidgetService {
     }
     return null;
   }
+
+  /**
+   * Replace the widget list with the given widget list. Returns 1 if successful, 0 otherwise.
+   */
+  public int saveAllWidgets(List<Widget> widgetList) {
+    try {
+      this.widgetList = widgetList;
+      return 1;
+    } catch (Exception e) {
+      return 0;
+    }
+  }
 }
