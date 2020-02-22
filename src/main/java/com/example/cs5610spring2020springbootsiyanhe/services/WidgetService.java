@@ -29,7 +29,7 @@ public class WidgetService {
   public Widget createWidget(String tid, Widget widget) {
     widget.setId(UUID.randomUUID().toString());
     widget.setTopicId(tid);
-    widget.setOrder(widgetList.size());
+    widget.setOrder(findWidgetsForTopic(tid).size());
     widgetList.add(widget);
     return widget;
   }
