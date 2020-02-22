@@ -59,14 +59,20 @@ public class WidgetService {
    * Remove widget whose id is wid. Returns 1 if successful, 0 otherwise.
    */
   public int deleteWidget(String wid) {
-    List<Widget> newWidgetList = widgetList.stream()
-            .filter(w -> !w.getId().equals(wid)).collect(Collectors.toList());
+    Widget widget = findWidgetById(wid);
 
-    if (newWidgetList.size() < widgetList.size()) {
-      widgetList = newWidgetList;
-      return 1;
+    if (widget == null) {
+      return 0;
     }
-    return 0;
+
+    widgetList.forEach(w -> {
+      if (w.getTopicId().equals(widget.getTopicId()) && w.getOrder() > widget.getOrder()) {
+        w.setOrder(w.getOrder() - 1);
+      }
+    });
+    widgetList.remove(widget);
+
+    return 1;
   }
 
   /**
