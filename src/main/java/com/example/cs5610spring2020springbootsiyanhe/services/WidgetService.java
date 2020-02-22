@@ -3,6 +3,7 @@ package com.example.cs5610spring2020springbootsiyanhe.services;
 import com.example.cs5610spring2020springbootsiyanhe.models.Widget;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -38,7 +39,9 @@ public class WidgetService {
    * Return collection of all widgets for a topic whose ID is tid.
    */
   public List<Widget> findWidgetsForTopic(String tid) {
-    return widgetList.stream().filter(w -> w.getTopicId().equals(tid)).collect(Collectors.toList());
+    return widgetList.stream().filter(w -> w.getTopicId().equals(tid))
+            .sorted(Comparator.comparingInt(Widget::getOrder))
+            .collect(Collectors.toList());
   }
 
   /**
