@@ -1,18 +1,39 @@
 package com.example.cs5610spring2020springbootsiyanhe.models;
 
-public class Widget {
-  private String id;
-  private String topicId;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="widgets")
+public class Widget implements Comparable<Widget> {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int id;
+
+  @ManyToOne
+  @JsonIgnore
+  private Topic topic;
+
   private String name;
   private String type = "HEADING";
-  private int order;
+
+  @Column(name = "`order`")
+  private Integer order;
+
   private String text;
   private String src;
   private String url;
   private String href;
-  private int size = 1;
-  private int width;
-  private int height;
+  private Integer size = 1;
+  private Integer width;
+  private Integer height;
   private String cssClass;
   private String style;
   private String value;
@@ -20,20 +41,20 @@ public class Widget {
   public Widget() {
   }
 
-  public String getId() {
+  public int getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(int id) {
     this.id = id;
   }
 
-  public String getTopicId() {
-    return topicId;
+  public Topic getTopic() {
+    return topic;
   }
 
-  public void setTopicId(String topicId) {
-    this.topicId = topicId;
+  public void setTopic(Topic topic) {
+    this.topic = topic;
   }
 
   public String getName() {
@@ -52,11 +73,11 @@ public class Widget {
     this.type = type;
   }
 
-  public int getOrder() {
+  public Integer getOrder() {
     return order;
   }
 
-  public void setOrder(int order) {
+  public void setOrder(Integer order) {
     this.order = order;
   }
 
@@ -92,27 +113,27 @@ public class Widget {
     this.href = href;
   }
 
-  public int getSize() {
+  public Integer getSize() {
     return size;
   }
 
-  public void setSize(int size) {
+  public void setSize(Integer size) {
     this.size = size;
   }
 
-  public int getWidth() {
+  public Integer getWidth() {
     return width;
   }
 
-  public void setWidth(int width) {
+  public void setWidth(Integer width) {
     this.width = width;
   }
 
-  public int getHeight() {
+  public Integer getHeight() {
     return height;
   }
 
-  public void setHeight(int height) {
+  public void setHeight(Integer height) {
     this.height = height;
   }
 
@@ -138,5 +159,10 @@ public class Widget {
 
   public void setValue(String value) {
     this.value = value;
+  }
+
+  @Override
+  public int compareTo(Widget w) {
+    return this.order - w.getOrder();
   }
 }
