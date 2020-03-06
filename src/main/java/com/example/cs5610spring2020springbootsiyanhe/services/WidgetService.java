@@ -1,108 +1,98 @@
 package com.example.cs5610spring2020springbootsiyanhe.services;
 
+import com.example.cs5610spring2020springbootsiyanhe.models.Topic;
 import com.example.cs5610spring2020springbootsiyanhe.models.Widget;
+import com.example.cs5610spring2020springbootsiyanhe.repositories.TopicRepository;
+import com.example.cs5610spring2020springbootsiyanhe.repositories.WidgetRepository;
 
-import java.util.ArrayList;
-import java.util.Comparator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Collections;
 import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
+@Service
 public class WidgetService {
-  private static WidgetService service = null;
-  private List<Widget> widgetList;
-
-  private WidgetService() {
-    this.widgetList = new ArrayList<>();
-  }
-
-  public static WidgetService getInstance() {
-    if (service == null) {
-      service = new WidgetService();
-    }
-    return service;
-  }
+  @Autowired
+  WidgetRepository widgetRepository;
+  @Autowired
+  TopicRepository topicRepository;
 
   /**
-   * Create a new Widget instance and add it to the existing collection of widgets for a topic whose
-   * ID is tid. Return new widget with a unique identifier.
+   * Create a new Widget instance and save it to a widgets table for a topic whose ID is tid.
+   * Return new widget inserted in the database.
    */
-  public Widget createWidget(String tid, Widget widget) {
-    widget.setId(UUID.randomUUID().toString());
-    widget.setTopicId(tid);
-    widget.setOrder(findWidgetsForTopic(tid).size());
-    widgetList.add(widget);
-    return widget;
+  public Widget createWidget(int tid, Widget widget) {
+    Topic topic = topicRepository.findTopicById(tid);
+    widget.setTopic(topic);
+    return widgetRepository.save(widget);
   }
 
   /**
    * Return collection of all widgets for a topic whose ID is tid.
    */
-  public List<Widget> findWidgetsForTopic(String tid) {
-    return widgetList.stream().filter(w -> w.getTopicId().equals(tid))
-            .sorted(Comparator.comparingInt(Widget::getOrder))
-            .collect(Collectors.toList());
+  public List<Widget> findWidgetsForTopic(int tid) {
+    List<Widget> widgets = widgetRepository.findWidgetsForTopic(tid);
+    Collections.sort(widgets);
+    return widgets;
   }
 
   /**
-   * Update widget whose id is wid encoded as JSON in HTTP body. Returns 1 if successful, 0
-   * otherwise.
+   * Update widget whose id is wid encoded as JSON in HTTP body.
+   * Return 1 if successful, 0 otherwise.
    */
-  public int updateWidget(String wid, Widget widget) {
-    for (int i = 0; i < widgetList.size(); i++) {
-      if (widgetList.get(i).getId().equals(wid)) {
-        widgetList.set(i, widget);
-        return 1;
-      }
+  public int updateWidget(int wid, Widget widget) {
+    if (widgetRepository.existsById(wid)) {
+      widgetRepository.save(widget);
+      return 1;
     }
     return 0;
   }
 
   /**
-   * Remove widget whose id is wid. Returns 1 if successful, 0 otherwise.
+   * Remove widget whose id is wid. Return 1 if successful, 0 otherwise.
    */
-  public int deleteWidget(String wid) {
-    Widget widget = findWidgetById(wid);
+  public int deleteWidget(int wid) {
+    Optional<Widget> optionalWidget = widgetRepository.findById(wid);
+    if (optionalWidget.isPresent()) {
+      Widget widget = optionalWidget.get();
 
-    if (widget == null) {
-      return 0;
+      List<Widget> widgets = widgetRepository.findWidgetsForTopic(widget.getTopic().getId());
+      widgets.forEach(w -> {
+        if (w.getOrder() > widget.getOrder()) {
+          w.setOrder(w.getOrder() - 1);
+          widgetRepository.save(w);
+        }
+      });
+
+      widgetRepository.deleteById(wid);
+      return 1;
     }
-
-    widgetList.forEach(w -> {
-      if (w.getTopicId().equals(widget.getTopicId()) && w.getOrder() > widget.getOrder()) {
-        w.setOrder(w.getOrder() - 1);
-      }
-    });
-    widgetList.remove(widget);
-
-    return 1;
+    return 0;
   }
 
   /**
-   * Returns collection of all widgets.
+   * Return collection of all widgets.
    */
   public List<Widget> findAllWidgets() {
-    return widgetList;
+    return widgetRepository.findAllWidgets();
   }
 
   /**
    * Return a single widget instance whose id is equal to wid.
    */
-  public Widget findWidgetById(String wid) {
-    for (Widget w : widgetList) {
-      if (w.getId().equals(wid)) {
-        return w;
-      }
-    }
-    return null;
+  public Widget findWidgetById(int wid) {
+    return widgetRepository.findWidgetById(wid);
   }
 
   /**
-   * Replace the widget list with the given widget list. Returns 1 if successful, 0 otherwise.
+   * Replace the widget list with the given widget list. Return 1 if successful, 0 otherwise.
    */
   public int saveAllWidgets(List<Widget> widgetList) {
     try {
-      this.widgetList = widgetList;
+      widgetRepository.deleteAll();
+      widgetRepository.saveAll(widgetList);
       return 1;
     } catch (Exception e) {
       return 0;
