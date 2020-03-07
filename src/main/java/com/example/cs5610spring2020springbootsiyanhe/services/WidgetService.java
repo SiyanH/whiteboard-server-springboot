@@ -26,6 +26,7 @@ public class WidgetService {
   public Widget createWidget(int tid, Widget widget) {
     Topic topic = topicRepository.findTopicById(tid);
     widget.setTopic(topic);
+    widget.setOrder(findWidgetsForTopic(tid).size());
     return widgetRepository.save(widget);
   }
 
@@ -33,9 +34,7 @@ public class WidgetService {
    * Return collection of all widgets for a topic whose ID is tid.
    */
   public List<Widget> findWidgetsForTopic(int tid) {
-    List<Widget> widgets = widgetRepository.findWidgetsForTopic(tid);
-    Collections.sort(widgets);
-    return widgets;
+    return widgetRepository.findWidgetsForTopic(tid);
   }
 
   /**

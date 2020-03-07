@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "widgets")
-public class Widget implements Comparable<Widget> {
+public class Widget {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
@@ -168,10 +168,5 @@ public class Widget implements Comparable<Widget> {
 
   public void setOrdered(boolean ordered) {
     this.ordered = ordered;
-  }
-
-  @Override
-  public int compareTo(Widget w) {
-    return this.order - w.getOrder();
   }
 }
