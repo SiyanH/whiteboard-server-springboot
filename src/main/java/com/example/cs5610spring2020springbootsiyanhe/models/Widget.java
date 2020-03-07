@@ -37,7 +37,7 @@ public class Widget {
   private String cssClass;
   private String style;
   private String value;
-  private boolean ordered;
+  private boolean ordered = false;
 
   public Widget() {
   }
