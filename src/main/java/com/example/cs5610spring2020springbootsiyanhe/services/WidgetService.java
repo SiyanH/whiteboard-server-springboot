@@ -43,7 +43,9 @@ public class WidgetService {
    * Return 1 if successful, 0 otherwise.
    */
   public int updateWidget(int wid, Widget widget) {
-    if (widgetRepository.existsById(wid)) {
+    Optional<Widget> w = widgetRepository.findById(wid);
+    if (w.isPresent()) {
+      widget.setTopic(w.get().getTopic());
       widgetRepository.save(widget);
       return 1;
     }
