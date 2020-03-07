@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="widgets")
+@Table(name = "widgets")
 public class Widget implements Comparable<Widget> {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,6 +37,7 @@ public class Widget implements Comparable<Widget> {
   private String cssClass;
   private String style;
   private String value;
+  private boolean ordered;
 
   public Widget() {
   }
@@ -159,6 +160,14 @@ public class Widget implements Comparable<Widget> {
 
   public void setValue(String value) {
     this.value = value;
+  }
+
+  public boolean isOrdered() {
+    return ordered;
+  }
+
+  public void setOrdered(boolean ordered) {
+    this.ordered = ordered;
   }
 
   @Override
