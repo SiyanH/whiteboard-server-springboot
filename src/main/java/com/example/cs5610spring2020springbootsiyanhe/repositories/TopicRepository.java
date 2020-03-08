@@ -12,9 +12,9 @@ public interface TopicRepository extends CrudRepository<Topic, Integer> {
   @Query("SELECT topic FROM Topic topic")
   List<Topic> findAllTopics();
 
-  @Query("SELECT topic FROM Topic topic where topic.lessonId=:lid")
+  @Query("SELECT topic FROM Topic topic WHERE topic.lessonId=:lid")
   List<Topic> findTopicsForLesson(@Param("lid") String lessonId);
 
-  @Query("SELECT topic FROM Topic topic where topic.id=:tid")
+  @Query("SELECT topic FROM Topic topic WHERE topic.id=:tid")
   Topic findTopicById(@Param("tid") int topicId);
 }

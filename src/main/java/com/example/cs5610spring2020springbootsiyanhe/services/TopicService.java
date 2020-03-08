@@ -27,7 +27,6 @@ public class TopicService {
    */
   public List<Topic> findTopicsForLesson(String lid) {
     return topicRepository.findTopicsForLesson(lid);
-
   }
 
   /**

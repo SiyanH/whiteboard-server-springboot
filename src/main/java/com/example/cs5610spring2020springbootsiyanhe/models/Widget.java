@@ -24,7 +24,7 @@ public class Widget {
   private String name;
   private String type = "HEADING";
 
-  @Column(name = "`order`")
+  @Column(name = "\"order\"")
   private Integer order;
 
   private String text;

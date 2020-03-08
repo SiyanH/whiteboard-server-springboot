@@ -1,7 +1,6 @@
 package com.example.cs5610spring2020springbootsiyanhe.controllers;
 
 import com.example.cs5610spring2020springbootsiyanhe.models.Topic;
-import com.example.cs5610spring2020springbootsiyanhe.models.Widget;
 import com.example.cs5610spring2020springbootsiyanhe.services.TopicService;
 
 import org.springframework.beans.factory.annotation.Autowired;

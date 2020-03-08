@@ -2,13 +2,11 @@ package com.example.cs5610spring2020springbootsiyanhe.models;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @Entity
@@ -21,8 +19,7 @@ public class Topic {
   private String lessonId;
   private String description;
 
-  @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, orphanRemoval = true)
-  @OrderBy("`order` ASC")
+  @OneToMany(mappedBy = "topic", orphanRemoval = true)
   private List<Widget> widgets;
 
   public int getId() {

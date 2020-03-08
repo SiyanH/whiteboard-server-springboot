@@ -12,9 +12,9 @@ public interface WidgetRepository extends CrudRepository<Widget, Integer> {
   @Query("SELECT widget FROM Widget widget")
   List<Widget> findAllWidgets();
 
-  @Query("SELECT widget FROM Widget widget where widget.topic.id=:tid")
+  @Query("SELECT widget FROM Widget widget WHERE widget.topic.id=:tid ORDER BY widget.order ASC")
   List<Widget> findWidgetsForTopic(@Param("tid") int topicId);
 
-  @Query("SELECT widget FROM Widget widget where widget.id=:wid")
+  @Query("SELECT widget FROM Widget widget WHERE widget.id=:wid")
   Widget findWidgetById(@Param("wid") int widgetId);
 }
