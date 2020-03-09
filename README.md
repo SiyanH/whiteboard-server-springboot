@@ -10,6 +10,8 @@ Name: Siyan He
 
 [A5 - Implementing RESTful Web APIs with Java - Due 2/21](https://docs.google.com/document/d/1_RDMRAsIR-6MY_xzbZ6HACRW98vat6j2sZmgym3MinU/edit?usp=sharing)
 
+[A6 - Persisting Data in Relational Databases with JPA - Due 3/13](https://docs.google.com/document/d/1aAmLYNEpmG9cGPqge6CzRani3TJY9pel52Ds1NKqM0Y/edit?usp=sharing)
+
 ## Describe the app
 Spring Boot Server
 
