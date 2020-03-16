@@ -1,5 +1,6 @@
 package com.example.cs5610spring2020springbootsiyanhe.controllers;
 
+import com.example.cs5610spring2020springbootsiyanhe.exceptions.NotFoundException;
 import com.example.cs5610spring2020springbootsiyanhe.models.Topic;
 import com.example.cs5610spring2020springbootsiyanhe.services.TopicService;
 
@@ -41,7 +42,6 @@ public class TopicController {
     return service.deleteTopic(tid);
   }
 
-
   @GetMapping("/api/topics")
   public List<Topic> findAllTopics() {
     return service.findAllTopics();
@@ -49,6 +49,12 @@ public class TopicController {
 
   @GetMapping("/api/topics/{tid}")
   public Topic findTopicById(@PathVariable("tid") int tid) {
-    return service.findTopicById(tid);
+    Topic topic = service.findTopicById(tid);
+
+    if (topic == null) {
+      throw new NotFoundException("No topic found");
+    }
+
+    return topic;
   }
 }

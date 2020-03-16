@@ -1,5 +1,6 @@
 package com.example.cs5610spring2020springbootsiyanhe.controllers;
 
+import com.example.cs5610spring2020springbootsiyanhe.exceptions.NotFoundException;
 import com.example.cs5610spring2020springbootsiyanhe.models.Widget;
 import com.example.cs5610spring2020springbootsiyanhe.services.WidgetService;
 
@@ -48,7 +49,13 @@ public class WidgetController {
 
   @GetMapping("/api/widgets/{wid}")
   public Widget findWidgetById(@PathVariable("wid") int wid) {
-    return service.findWidgetById(wid);
+    Widget widget = service.findWidgetById(wid);
+
+    if (widget == null) {
+      throw new NotFoundException("No widget found");
+    }
+
+    return widget;
   }
 
   @PutMapping("/api/widgets")
