@@ -4,15 +4,11 @@ This is a Spring Boot server for the Whiteboard web app. It provides RESTful web
 
 Whiteboard is a simple learning management platform where faculty can create courses and learning materials for students with various types of widgets, and students can take, submit and get scores for quizzes.
 
-## Test
-
-You can test this app by either accessing the [live demo](https://cs5610-sp20-springboot-siyanhe.herokuapp.com/) (this demo also contains links to other work I have done in the Web Development course) hosted on Heroku or running the code on your local machine.
-
-Please note that the live demo may take few minutes to start when you visit it.
-
 ## RESTful API
 
 API endpoint: https://cs5610-sp20-springboot-siyanhe.herokuapp.com/api
+
+Please note that the services are hosted on Heroku so it may take few minutes to start when you visit it.
 
 ### Widget Service
 
