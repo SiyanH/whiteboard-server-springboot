@@ -1,22 +1,40 @@
-# CS5610 Web Development (Spring 2020)
-Name: Siyan He
+# Whiteboard Server - Spring Boot
 
-[Syllabus](https://docs.google.com/document/d/1Qm_SqhHK5fYGm84xIUVbJJ2zLH6GWgaAD3hf_NVX1ZQ/edit?usp=sharing)
+This is a Spring Boot server for the Whiteboard web app. It provides RESTful web services for the Whiteboard clients to perform CRUD operations.
 
-## Assignments
-[A1 - Implementing Web Interfaces with HTML, CSS, Bootstrap - Due 1/21](https://docs.google.com/document/d/1BWKOyq9agNMsd2n_c3XShuR5T5yVXKSpsFQk9uS1M_Y/edit?usp=sharing)
+Whiteboard is a simple learning management platform where faculty can create courses and learning materials for students with various types of widgets, and students can take, submit and get scores for quizzes.
 
-[A2 - Programming Dynamic Web Interfaces with JavaScript and jQuery - Due 1/28](https://docs.google.com/document/d/1DSkyihff_GIAceLUJpi7s7KStdd2H64jB_GQQcveWJE/edit?usp=sharing)
+## Test
 
-[A5 - Implementing RESTful Web APIs with Java - Due 2/21](https://docs.google.com/document/d/1_RDMRAsIR-6MY_xzbZ6HACRW98vat6j2sZmgym3MinU/edit?usp=sharing)
+You can test this app by either accessing the [live demo](https://cs5610-sp20-springboot-siyanhe.herokuapp.com/) hosted on Heroku or running the code on your local machine.
 
-[A6 - Persisting Data in Relational Databases with JPA - Due 3/13](https://docs.google.com/document/d/1aAmLYNEpmG9cGPqge6CzRani3TJY9pel52Ds1NKqM0Y/edit?usp=sharing)
+Please note that the live demo may take few minutes to start when you visit it.
 
-## Describe the app
-Spring Boot Server
+## RESTful API
 
-Responsive layout support for screen width >= 320px (smallest mobile screen in Chrome Developer Tools)
+### Widget Service
 
-[Heroku deployment](https://cs5610-sp20-springboot-siyanhe.herokuapp.com/)
+| HTTP Method | URL Pattern                 | Description                                                  |
+| ----------- | --------------------------- | ------------------------------------------------------------ |
+| POST        | `api/topics/{tid}/widgets`  | Creates a new widget for a topic whose ID is `tid`. Returns the new widget with a unique identifier. |
+| GET         | `/api/topics/{tid}/widgets` | Retrieves a collection of all widgets for a topic whose ID is `tid` as a JSON array. |
+| PUT         | `/api/widgets/{wid}`        | Updates a widget whose id is `wid` with the new fields specified in the body of the request. Returns 1 if successful, 0 otherwise. |
+| DELETE      | ``/api/widgets/{wid}``      | Removes a widget whose id is `wid`. Returns 1 if successful, 0 otherwise. |
+| GET         | `/api/widgets`              | Retrieves a collection of all widgets as a JSON array.       |
+| GET         | `/api/widgets/{wid}`        | Retrieves a single widget whose id is `wid` as a JSON object. |
 
-[React repository](https://github.ccs.neu.edu/hsy/wbdv-sp20-siyan-he-client-react)
+### Topic Service
+
+| HTTP Method | URL Pattern                 | Description                                                  |
+| ----------- | --------------------------- | ------------------------------------------------------------ |
+| POST        | `/api/lessons/{lid}/topics` | Creates a new topic for a lesson whose ID is `lid`. Returns the new topic with a unique identifier. |
+| GET         | `/api/lessons/{lid}/topics` | Retrieves a collection of all topics for a lesson whose ID is `lid` as a JSON array. |
+| PUT         | `/api/topics/{tid}`         | Updates a topic whose id is `tid` with the new fields specified in the body of the request. Returns 1 if successful, 0 otherwise. |
+| DELETE      | ``/api/topics/{tid}``       | Removes a topic whose id is `tid`. Returns 1 if successful, 0 otherwise. |
+| GET         | `/api/topics`               | Retrieves a collection of all topics as a JSON array.        |
+| GET         | `/api/topics/{tid}`         | Retrieves a single topic whose id is `tid` as a JSON object. |
+
+
+## Disclaimer
+
+This is a personal project for CS5610 Web Development and the repository was migrated from GitHub Enterprise. For maintaining academic intergity, please do NOT reuse any code in this repository if you are working on your project for a related course.
