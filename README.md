@@ -6,17 +6,19 @@ Whiteboard is a simple learning management platform where faculty can create cou
 
 ## Test
 
-You can test this app by either accessing the [live demo](https://cs5610-sp20-springboot-siyanhe.herokuapp.com/) hosted on Heroku or running the code on your local machine.
+You can test this app by either accessing the [live demo](https://cs5610-sp20-springboot-siyanhe.herokuapp.com/) (this demo also contains links to other work I have done in the Web Development course) hosted on Heroku or running the code on your local machine.
 
 Please note that the live demo may take few minutes to start when you visit it.
 
 ## RESTful API
 
+API endpoint: https://cs5610-sp20-springboot-siyanhe.herokuapp.com/api
+
 ### Widget Service
 
 | HTTP Method | URL Pattern                 | Description                                                  |
 | ----------- | --------------------------- | ------------------------------------------------------------ |
-| POST        | `api/topics/{tid}/widgets`  | Creates a new widget for a topic whose ID is `tid`. Returns the new widget with a unique identifier. |
+| POST        | `/api/topics/{tid}/widgets`  | Creates a new widget for a topic whose ID is `tid`. Returns the new widget with a unique identifier. |
 | GET         | `/api/topics/{tid}/widgets` | Retrieves a collection of all widgets for a topic whose ID is `tid` as a JSON array. |
 | PUT         | `/api/widgets/{wid}`        | Updates a widget whose id is `wid` with the new fields specified in the body of the request. Returns 1 if successful, 0 otherwise. |
 | DELETE      | ``/api/widgets/{wid}``      | Removes a widget whose id is `wid`. Returns 1 if successful, 0 otherwise. |
