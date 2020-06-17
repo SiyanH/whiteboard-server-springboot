@@ -10,6 +10,8 @@ Live API endpoint: https://cs5610-sp20-springboot-siyanhe.herokuapp.com/api
 
 Please note that the services are hosted on Heroku so it may take few minutes to start when you access it.
 
+*The database credentials were removed from the source code in this repository for security reasons.*
+
 ### Widget Service
 
 | HTTP Method | URL Pattern                 | Description                                                  |
