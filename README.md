@@ -6,9 +6,9 @@ Whiteboard is a simple learning management platform where faculty can create cou
 
 ## RESTful API
 
-API endpoint: https://cs5610-sp20-springboot-siyanhe.herokuapp.com/api
+Live API endpoint: https://cs5610-sp20-springboot-siyanhe.herokuapp.com/api
 
-Please note that the services are hosted on Heroku so it may take few minutes to start when you visit it.
+Please note that the services are hosted on Heroku so it may take few minutes to start when you access it.
 
 ### Widget Service
 
