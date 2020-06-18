@@ -37,4 +37,4 @@ Please note that the services are hosted on Heroku so it may take few minutes to
 
 ## Disclaimer
 
-This is a personal project for CS5610 Web Development and the repository was migrated from GitHub Enterprise. For maintaining academic intergity, please do NOT reuse any code in this repository if you are working on your project for a related course.
+This is a personal project for CS5610 Web Development and the repository was migrated from GitHub Enterprise. For maintaining academic integrity, please do NOT reuse any code in this repository if you are working on your project for a related course.
